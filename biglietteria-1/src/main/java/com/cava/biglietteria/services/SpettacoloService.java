@@ -5,31 +5,32 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cava.biglietteria.entities.Cliente;
-import com.cava.biglietteria.repos.ClienteRepos;
+import com.cava.biglietteria.entities.Spettacolo;
+import com.cava.biglietteria.repos.SpettacoloRepos;
+import com.cava.biglietteria.repos.TeatroRepos;
 
 @Service
-public class ClienteService {
+public class SpettacoloService {
 
 	@Autowired
-	private ClienteRepos repos;
+	private SpettacoloRepos repos;
 
-	public List<Cliente> findAll() {
+	public List<Spettacolo> findAll() {
 		// TODO Auto-generated method stub
 		return repos.findAll();
 	}
 
-	public Cliente save(Cliente cliente) {
+	public Spettacolo save(Spettacolo spettacolo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Cliente update(Long id, Cliente updatedCliente) {
+	public Spettacolo update(String id, Spettacolo updateSpettacolo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void delete(Long id) {
+	public void delete(String id) {
 		// TODO Auto-generated method stub
 
 	}

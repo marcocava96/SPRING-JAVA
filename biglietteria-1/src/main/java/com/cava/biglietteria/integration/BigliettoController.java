@@ -13,39 +13,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cava.biglietteria.entities.Cliente;
-import com.cava.biglietteria.services.ClienteService;
+import com.cava.biglietteria.entities.Biglietto;
+import com.cava.biglietteria.entities.Replica;
+import com.cava.biglietteria.entities.Spettacolo;
+import com.cava.biglietteria.entities.Teatro;
+import com.cava.biglietteria.services.BigliettoService;
+import com.cava.biglietteria.services.ReplicaService;
+import com.cava.biglietteria.services.TeatroService;
 
 @RestController
-@RequestMapping("clienti")
-public class ClienteController {
+@RequestMapping("biglietti")
+public class BigliettoController {
 
 	@Autowired
-	private ClienteService clientiServices;
+	private BigliettoService bigliettoService;
 
-	
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = "tutti")
-	public List<Cliente> getClienti() {
-		return clientiServices.findAll();
+	public List<Biglietto> getBiglietto() {
+		return bigliettoService.findAll();
 	}
 
 	@CrossOrigin(origins = "*")
 	@PostMapping
-	public Cliente createClient(@RequestBody Cliente cliente) {
-		return clientiServices.save(cliente);
+	public Biglietto createBiglietto(@RequestBody Biglietto biglietto) {
+		return bigliettoService.save(biglietto);
 	}
 
 	@CrossOrigin(origins = "*")
 	@PutMapping("/{id}")
-	public Cliente updateClient(@PathVariable Long id, @RequestBody Cliente updatedCliente) {
-		return clientiServices.update(id, updatedCliente);
+	public Biglietto updateBiglietto(@PathVariable String id, @RequestBody Biglietto updateBiglietto) {
+		return bigliettoService.update(id, updateBiglietto);
 	}
 	
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("/{id}")
-	public void deleteClient(@PathVariable Long id) {
-		clientiServices.delete(id);
+	public void deleteReplica(@PathVariable String id) {
+		bigliettoService.delete(id);
 	}
 
 }// fine classe
